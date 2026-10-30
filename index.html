@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Elite Auto Revival LLC provides mobile auto detailing, fleet detailing, and house and driveway pressure washing across Northwest Indiana. We come to you.">
+  <meta name="theme-color" content="#0b0b0b">
+  <title>Elite Auto Revival LLC | Mobile Detailing & Pressure Washing</title>
+  <style>
+    :root{--bg:#090909;--panel:#131313;--panel2:#1a1a1a;--text:#f7f7f7;--muted:#b8b8b8;--line:#303030;--white:#fff;--max:1160px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(9,9,9,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-size:.95rem;font-weight:900;letter-spacing:.11em;line-height:1.2}
+    .brand span{display:block;font-size:.68rem;font-weight:600;color:#bdbdbd;letter-spacing:.2em;margin-top:5px}
+    .links{display:flex;align-items:center;gap:24px;font-size:.9rem;color:#ddd}
+    .links a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border:1px solid var(--white);background:var(--white);color:#080808;font-weight:800;letter-spacing:.02em;border-radius:3px;cursor:pointer;transition:.2s}
+    .btn:hover{background:#d9d9d9}
+    .btn.ghost{background:transparent;color:#fff}
+    .btn.ghost:hover{background:#fff;color:#000}
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 78% 38%,#292929 0,transparent 42%),linear-gradient(120deg,#080808 30%,#171717 100%)}
+    .hero:after{content:"";position:absolute;right:-8%;bottom:-42%;width:60%;height:100%;border:1px solid #414141;transform:skewX(-25deg);opacity:.45;pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;min-height:590px;padding-top:70px;padding-bottom:70px;position:relative;z-index:1}
+    .eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#c6c6c6}
+    h1{font-size:clamp(2.8rem,6vw,5.5rem);line-height:.99;letter-spacing:-.055em;margin:18px 0 22px;max-width:760px}
+    h1 em{font-style:normal;color:#aaa}
+    .lead{font-size:1.12rem;max-width:590px;color:#d0d0d0}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hero-art{min-height:330px;position:relative;display:flex;align-items:center;justify-content:center}
+    .ring{position:absolute;width:min(100%,430px);aspect-ratio:1;border:1px solid #505050;border-radius:50%;box-shadow:0 0 0 24px #ffffff04,0 0 0 54px #ffffff03}
+    .car{position:relative;width:100%;max-width:500px;filter:drop-shadow(0 24px 25px #000);z-index:1}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #3b3b3b;margin-top:44px;max-width:600px}
+    .stat{padding:18px 14px 0 0}
+    .stat strong{display:block;font-size:.9rem;letter-spacing:.08em}
+    .stat span{color:var(--muted);font-size:.82rem}
+    section{padding:88px 0}
+    .section-head{max-width:680px;margin-bottom:34px}
+    .kicker{font-size:.73rem;text-transform:uppercase;letter-spacing:.2em;color:#aaa;font-weight:800}
+    h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.06;letter-spacing:-.04em;margin:12px 0 15px}
+    .sub{color:var(--muted);font-size:1.03rem}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{background:linear-gradient(145deg,#171717,#0f0f0f);border:1px solid var(--line);padding:27px;min-height:245px;display:flex;flex-direction:column}
+    .num{font-size:.75rem;letter-spacing:.15em;color:#888;font-weight:800}
+    .service h3{font-size:1.3rem;margin:25px 0 8px}
+    .service p{color:var(--muted);font-size:.94rem;margin:0 0 22px}
+    .service a{margin-top:auto;font-size:.9rem;font-weight:800;border-bottom:1px solid #777;padding-bottom:5px;align-self:flex-start}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .feature-panel{padding:35px;border:1px solid var(--line);background:linear-gradient(145deg,#1a1a1a,#0d0d0d)}
+    .checklist{list-style:none;padding:0;margin:24px 0}
+    .checklist li{padding:12px 0;border-bottom:1px solid var(--line);color:#ddd}
+    .checklist li:before{content:"✓";display:inline-block;margin-right:12px;color:#fff;font-weight:900}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .step{border-top:1px solid #777;padding-top:18px}
+    .step strong{font-size:1.1rem;display:block;margin:10px 0}
+    .step p{color:var(--muted);font-size:.94rem}
+    .forms{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+    .form-card{background:var(--panel);border:1px solid var(--line);padding:28px}
+    .form-card h3{font-size:1.5rem;margin:0 0 7px}
+    .form-card>p{color:var(--muted);font-size:.93rem;margin:0 0 22px}
+    label{display:block;font-size:.84rem;font-weight:700;margin:13px 0 6px}
+    input,select,textarea{width:100%;background:#080808;color:#fff;border:1px solid #424242;padding:13px 12px;border-radius:2px;font:inherit}
+    input:focus,select:focus,textarea:focus{outline:2px solid #aaa;outline-offset:1px}
+    textarea{min-height:95px;resize:vertical}
+    .form-card .btn{width:100%;margin-top:18px}
+    .fineprint{font-size:.78rem!important;color:#929292!important;margin-top:13px!important}
+    .contact-band{background:#f4f4f4;color:#090909;padding:56px 0}
+    .contact-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .contact-band .kicker,.contact-band .sub{color:#444}
+    .contact-band h2{margin-bottom:8px}
+    footer{padding:34px 0;color:#999;font-size:.85rem}
+    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:25px}
+    .notice{font-size:.83rem;color:#aaa}
+    @media(max-width:850px){.links{gap:12px}.links a:not(.btn){display:none}.hero-grid{grid-template-columns:1fr;min-height:auto;padding:70px 0 45px}.hero-art{min-height:230px;max-width:560px;width:100%;margin:auto}.ring{max-width:270px}.car{max-width:390px}.services{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr;gap:28px}.forms{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.contact-inner{align-items:flex-start;flex-direction:column}}
+    @media(max-width:520px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{min-height:68px}.brand{font-size:.8rem}.nav .btn{padding:10px 12px;font-size:.8rem}.hero-grid{padding-top:52px}.hero-art{min-height:190px}section{padding:62px 0}.services{grid-template-columns:1fr}.service{min-height:210px;padding:23px}.form-card{padding:22px}.stats{gap:8px}.stat strong{font-size:.75rem}.stat span{font-size:.74rem}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Elite Auto Revival home">ELITE AUTO REVIVAL<span>LLC · MOBILE SERVICES</span></a>
+    <nav class="links" aria-label="Main navigation">
+      <a href="#services">Services</a><a href="#fleet">Fleet Programs</a><a href="#booking">Booking</a>
+      <a class="btn" href="#booking">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Mobile detailing · Northwest Indiana</div>
+        <h1>Bring back the <em>clean.</em></h1>
+        <p class="lead">Premium mobile vehicle detailing and exterior pressure washing—performed at your home or business. We come to you, so you can get back to your day.</p>
+        <div class="actions">
+          <a class="btn" href="#booking">Book a Detail</a>
+          <a class="btn ghost" href="#fleet">Fleet & Business Quotes</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>MOBILE ONLY</strong><span>Service at your location</span></div>
+          <div class="stat"><strong>PERSONAL + FLEET</strong><span>Cars, trucks & work vehicles</span></div>
+          <div class="stat"><strong>NORTHWEST INDIANA</strong><span>Local service area</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="ring"></div>
+        <svg class="car" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img">
+          <defs><linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f8f8"/><stop offset=".43" stop-color="#999"/><stop offset=".7" stop-color="#343434"/><stop offset="1" stop-color="#111"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6e6e6e"/><stop offset="1" stop-color="#101010"/></linearGradient></defs>
+          <ellipse cx="323" cy="244" rx="245" ry="24" fill="#000" opacity=".8"/>
+          <path d="M74 204 L92 164 Q104 145 144 137 L223 82 Q244 68 287 67 L390 72 Q416 74 440 101 L489 151 L546 166 Q565 174 569 197 L562 218 L76 220 Z" fill="url(#body)" stroke="#ddd" stroke-width="2"/>
+          <path d="M153 135 L234 91 Q249 83 283 83 L319 85 L319 136 Z" fill="url(#glass)" stroke="#777" stroke-width="2"/>
+          <path d="M331 86 L388 90 Q405 92 423 111 L444 136 L331 136 Z" fill="url(#glass)" stroke="#777" stroke-width="2"/>
+          <path d="M327 81 L327 207" stroke="#555" stroke-width="3"/><path d="M118 165 L480 165" stroke="#ddd" stroke-opacity=".5" stroke-width="2"/>
+          <path d="M86 188 L132 184 L123 197 L82 200 Z" fill="#fff"/><path d="M511 178 L548 189 L550 198 L512 194 Z" fill="#eee"/>
+          <path d="M190 207 L450 207" stroke="#eee" stroke-opacity=".55" stroke-width="2"/>
+          <circle cx="184" cy="213" r="43" fill="#080808" stroke="#aaa" stroke-width="5"/><circle cx="184" cy="213" r="25" fill="#333" stroke="#888" stroke-width="4"/><circle cx="184" cy="213" r="7" fill="#ddd"/>
+          <circle cx="466" cy="213" r="43" fill="#080808" stroke="#aaa" stroke-width="5"/><circle cx="466" cy="213" r="25" fill="#333" stroke="#888" stroke-width="4"/><circle cx="466" cy="213" r="7" fill="#ddd"/>
+          <path d="M265 153 L265 183 M386 153 L386 183" stroke="#222" stroke-width="3"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">What we do</div><h2>Clean cars. Clean properties.<br>One convenient visit.</h2><p class="sub">Choose a service below and send a request. Final pricing depends on vehicle size, condition, property dimensions, and location.</p></div>
+      <div class="services">
+        <article class="service"><span class="num">01 / INTERIOR</span><h3>Interior Detailing</h3><p>Refresh the cabin with focused cleaning for seats, carpets, mats, surfaces, and hard-to-reach areas.</p><a href="#booking" data-service="Interior detailing">Request interior detail ↗</a></article>
+        <article class="service"><span class="num">02 / EXTERIOR</span><h3>Exterior Detailing</h3><p>Bring back a cleaner finish with a careful exterior wash, wheel and tire cleaning, and finishing touches.</p><a href="#booking" data-service="Exterior detailing">Request exterior detail ↗</a></article>
+        <article class="service"><span class="num">03 / COMPLETE</span><h3>Full Detailing</h3><p>A thorough inside-and-out refresh for drivers who want their vehicle cleaned from cabin to exterior.</p><a href="#booking" data-service="Full detailing">Request full detail ↗</a></article>
+        <article class="service"><span class="num">04 / COMMERCIAL</span><h3>Fleet Detailing</h3><p>Recurring service for company cars, pickups, vans, and work vehicles. Ask about weekly, biweekly, or monthly plans.</p><a href="#fleet">Request fleet pricing ↗</a></article>
+        <article class="service"><span class="num">05 / PROPERTY</span><h3>House Pressure Washing</h3><p>Exterior house washing to help remove everyday dirt and buildup. Surface suitability is reviewed before cleaning.</p><a href="#booking" data-service="House pressure washing">Request house wash ↗</a></article>
+        <article class="service"><span class="num">06 / DRIVEWAYS</span><h3>Driveway Pressure Washing</h3><p>Clean up concrete and other suitable hard surfaces at your property. Send dimensions or photos for a quote.</p><a href="#booking" data-service="Driveway pressure washing">Request driveway wash ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="fleet" style="background:#101010;border-top:1px solid #252525;border-bottom:1px solid #252525">
+    <div class="wrap split">
+      <div>
+        <div class="kicker">For local businesses</div><h2>Keep your fleet looking ready for business.</h2>
+        <p class="sub">A clean fleet makes a strong first impression. Elite Auto Revival offers mobile service at your business location across Northwest Indiana, with recurring schedules designed around your operation.</p>
+        <ul class="checklist"><li>Cars, pickups, vans, and light-duty work vehicles</li><li>Service at your business location</li><li>Weekly, biweekly, or monthly schedule requests</li><li>Custom pricing based on vehicle count and service needs</li></ul>
+        <a class="btn" href="#fleet-quote">Get a Fleet Quote</a>
+      </div>
+      <div class="feature-panel">
+        <div class="kicker">Simple process</div><h3 style="font-size:1.6rem;margin:10px 0">Built around your schedule.</h3>
+        <div class="steps" style="grid-template-columns:1fr">
+          <div class="step"><span class="num">STEP 01</span><strong>Tell us about your fleet</strong><p>Share vehicle count, types, location, and how often you need service.</p></div>
+          <div class="step"><span class="num">STEP 02</span><strong>Review your custom quote</strong><p>We’ll follow up to confirm the scope and pricing.</p></div>
+          <div class="step"><span class="num">STEP 03</span><strong>Set a service schedule</strong><p>Choose a recurring plan that works for your team.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Make a request</div><h2>Let’s get you on the schedule.</h2><p class="sub">Submit a detailing or pressure-washing request. This form prepares an email for you to send, so your request is not lost to a non-connected form.</p></div>
+      <div class="forms">
+        <form class="form-card" id="booking-form">
+          <h3>Appointment Request</h3><p>For personal vehicles and residential pressure washing.</p>
+          <label for="b-name">Your name *</label><input id="b-name" name="name" required autocomplete="name" placeholder="Full name">
+          <label for="b-phone">Phone number *</label><input id="b-phone" name="phone" required type="tel" autocomplete="tel" placeholder="Best number to reach you">
+          <label for="b-email">Email</label><input id="b-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          <label for="b-service">Service requested *</label><select id="b-service" name="service" required><option value="">Choose a service</option><option>Interior detailing</option><option>Exterior detailing</option><option>Full detailing</option><option>House pressure washing</option><option>Driveway pressure washing</option></select>
+          <label for="b-vehicle">Vehicle or property details *</label><input id="b-vehicle" name="details" required placeholder="e.g. midsize SUV, 2-car driveway">
+          <label for="b-date">Preferred date</label><input id="b-date" name="date" type="date">
+          <label for="b-location">Service address / city *</label><input id="b-location" name="location" required placeholder="City or service address">
+          <label for="b-notes">Anything else?</label><textarea id="b-notes" name="notes" placeholder="Vehicle condition, size, or other details"></textarea>
+          <button class="btn" type="submit">Prepare Appointment Email</button>
+          <p class="fineprint">This is a request, not a confirmed appointment. We’ll confirm availability and pricing with you.</p>
+        </form>
+        <form class="form-card" id="fleet-quote">
+          <h3>Fleet Quote Request</h3><p>For businesses that need one-time or recurring fleet service.</p>
+          <label for="f-company">Business name *</label><input id="f-company" name="company" required placeholder="Company name">
+          <label for="f-contact">Contact name *</label><input id="f-contact" name="contact" required placeholder="Your name">
+          <label for="f-phone">Phone number *</label><input id="f-phone" name="phone" required type="tel" placeholder="Best number to reach you">
+          <label for="f-email">Business email</label><input id="f-email" name="email" type="email" placeholder="you@company.com">
+          <label for="f-count">Number of vehicles *</label><input id="f-count" name="count" required type="number" min="1" placeholder="e.g. 12">
+          <label for="f-types">Vehicle types *</label><input id="f-types" name="types" required placeholder="Cars, pickups, vans, etc.">
+          <label for="f-frequency">Preferred frequency</label><select id="f-frequency" name="frequency"><option>Not sure yet</option><option>One-time service</option><option>Weekly</option><option>Biweekly</option><option>Monthly</option></select>
+          <label for="f-location">Business location / city *</label><input id="f-location" name="location" required placeholder="City or service address">
+          <label for="f-notes">Services or details</label><textarea id="f-notes" name="notes" placeholder="Interior, exterior, full details, preferred days, etc."></textarea>
+          <button class="btn" type="submit">Prepare Fleet Quote Email</button>
+          <p class="fineprint">No commitment required. Fleet pricing is customized to your vehicle count and service needs.</p>
+        </form>
+      </div>
+      <p class="notice" style="margin-top:20px">Before publishing: update the business email in the website code so forms send to the right inbox. See README for the quick setup.</p>
+    </div>
+  </section>
+  <section class="contact-band">
+    <div class="wrap contact-inner">
+      <div><div class="kicker">Mobile service across Northwest Indiana</div><h2>We come to you.</h2><p class="sub">Serving Northwest Indiana. Ask whether your city or business location is in our service area.</p><p style="font-weight:800;margin-top:18px">Call or text: <a href="tel:+12199738134" style="text-decoration:underline">219-973-8134</a></p></div>
+      <div class="actions" style="margin-top:0"><a class="btn" href="#booking">Request Service</a><a class="btn ghost" style="color:#111;border-color:#111" href="#fleet">Fleet Quote</a></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><div class="foot"><div><strong style="color:#eee;letter-spacing:.08em">ELITE AUTO REVIVAL LLC</strong><br>Mobile detailing & pressure washing · Northwest Indiana</div><div><a href="tel:+12199738134">Call or text 219-973-8134</a><br>© <span id="year"></span> Elite Auto Revival LLC. All rights reserved.</div></div><p class="notice">All appointments are requests until confirmed. Final pricing depends on service scope, vehicle/property condition, and location.</p></div></footer>
+<script>
+  // IMPORTANT: Replace this with your business email before publishing.
+  const BUSINESS_EMAIL = "YOUR_EMAIL_HERE";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function formToEmail(form, subject, intro) {
+    if (BUSINESS_EMAIL === "YOUR_EMAIL_HERE" || !BUSINESS_EMAIL.includes("@")) {
+      alert("The website owner needs to add the business email in index.html first. Please contact the business directly after that setup is complete.");
+      return;
+    }
+    const data = new FormData(form);
+    const lines = [intro, ""];
+    for (const [key, value] of data.entries()) {
+      if (String(value).trim()) lines.push(key.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()) + ": " + value);
+    }
+    const url = "mailto:" + BUSINESS_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    window.location.href = url;
+  }
+  document.getElementById("booking-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!this.reportValidity()) return;
+    formToEmail(this, "Appointment Request — Elite Auto Revival LLC", "New mobile service appointment request:");
+  });
+  document.getElementById("fleet-quote").addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!this.reportValidity()) return;
+    formToEmail(this, "Fleet Quote Request — Elite Auto Revival LLC", "New fleet detailing quote request:");
+  });
+  document.querySelectorAll("[data-service]").forEach(link => link.addEventListener("click", () => {
+    document.getElementById("b-service").value = link.dataset.service;
+  }));
+</script>
+</body>
+</html>
