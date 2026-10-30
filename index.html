@@ -160,9 +160,9 @@
 
   <section id="booking">
     <div class="wrap">
-      <div class="section-head"><div class="kicker">Make a request</div><h2>Let’s get you on the schedule.</h2><p class="sub">Submit a detailing or pressure-washing request. This form prepares an email for you to send, so your request is not lost to a non-connected form.</p></div>
+      <div class="section-head"><div class="kicker">Make a request</div><h2>Let’s get you on the schedule.</h2><p class="sub">Submit a detailing or pressure-washing request directly through our website. We’ll receive your request and follow up to confirm availability and pricing.</p></div>
       <div class="forms">
-        <form class="form-card" id="booking-form">
+        <form class="form-card" id="booking-form" action="https://formspree.io/f/mzeeaar1" method="POST">
           <h3>Appointment Request</h3><p>For personal vehicles and residential pressure washing.</p>
           <label for="b-name">Your name *</label><input id="b-name" name="name" required autocomplete="name" placeholder="Full name">
           <label for="b-phone">Phone number *</label><input id="b-phone" name="phone" required type="tel" autocomplete="tel" placeholder="Best number to reach you">
@@ -172,10 +172,12 @@
           <label for="b-date">Preferred date</label><input id="b-date" name="date" type="date">
           <label for="b-location">Service address / city *</label><input id="b-location" name="location" required placeholder="City or service address">
           <label for="b-notes">Anything else?</label><textarea id="b-notes" name="notes" placeholder="Vehicle condition, size, or other details"></textarea>
-          <button class="btn" type="submit">Prepare Appointment Email</button>
+          <input type="hidden" name="_subject" value="Appointment Request — Elite Auto Revival LLC">
+          <button class="btn" type="submit">Submit Appointment Request</button>
+          <p class="fineprint form-status" role="status" aria-live="polite"></p>
           <p class="fineprint">This is a request, not a confirmed appointment. We’ll confirm availability and pricing with you.</p>
         </form>
-        <form class="form-card" id="fleet-quote">
+        <form class="form-card" id="fleet-quote" action="https://formspree.io/f/mkjjvvbo" method="POST">
           <h3>Fleet Quote Request</h3><p>For businesses that need one-time or recurring fleet service.</p>
           <label for="f-company">Business name *</label><input id="f-company" name="company" required placeholder="Company name">
           <label for="f-contact">Contact name *</label><input id="f-contact" name="contact" required placeholder="Your name">
@@ -186,11 +188,13 @@
           <label for="f-frequency">Preferred frequency</label><select id="f-frequency" name="frequency"><option>Not sure yet</option><option>One-time service</option><option>Weekly</option><option>Biweekly</option><option>Monthly</option></select>
           <label for="f-location">Business location / city *</label><input id="f-location" name="location" required placeholder="City or service address">
           <label for="f-notes">Services or details</label><textarea id="f-notes" name="notes" placeholder="Interior, exterior, full details, preferred days, etc."></textarea>
-          <button class="btn" type="submit">Prepare Fleet Quote Email</button>
+          <input type="hidden" name="_subject" value="Fleet Quote Request — Elite Auto Revival LLC">
+          <button class="btn" type="submit">Submit Fleet Quote Request</button>
+          <p class="fineprint form-status" role="status" aria-live="polite"></p>
           <p class="fineprint">No commitment required. Fleet pricing is customized to your vehicle count and service needs.</p>
         </form>
       </div>
-      <p class="notice" style="margin-top:20px">Before publishing: update the business email in the website code so forms send to the right inbox. See README for the quick setup.</p>
+      <p class="notice" style="margin-top:20px">Your request will be sent securely to Elite Auto Revival LLC. All appointments and quotes are confirmed directly with you.</p>
     </div>
   </section>
   <section class="contact-band">
@@ -202,33 +206,56 @@
 </main>
 <footer><div class="wrap"><div class="foot"><div><strong style="color:#eee;letter-spacing:.08em">ELITE AUTO REVIVAL LLC</strong><br>Mobile detailing & pressure washing · Northwest Indiana</div><div><a href="tel:+12199738134">Call or text 219-973-8134</a><br>© <span id="year"></span> Elite Auto Revival LLC. All rights reserved.</div></div><p class="notice">All appointments are requests until confirmed. Final pricing depends on service scope, vehicle/property condition, and location.</p></div></footer>
 <script>
-  // IMPORTANT: Replace this with your business email before publishing.
-  const BUSINESS_EMAIL = "YOUR_EMAIL_HERE";
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  function formToEmail(form, subject, intro) {
-    if (BUSINESS_EMAIL === "YOUR_EMAIL_HERE" || !BUSINESS_EMAIL.includes("@")) {
-      alert("The website owner needs to add the business email in index.html first. Please contact the business directly after that setup is complete.");
-      return;
+  async function submitToFormspree(form) {
+    if (!form.reportValidity()) return;
+
+    const button = form.querySelector('button[type="submit"]');
+    const status = form.querySelector(".form-status");
+    const originalLabel = button.textContent;
+    button.disabled = true;
+    button.textContent = "Sending...";
+    status.textContent = "";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        status.textContent = "Thank you! Your request has been sent. We'll contact you shortly.";
+        form.reset();
+      } else {
+        let message = "We couldn't send your request. Please try again or call/text 219-973-8134.";
+        try {
+          const result = await response.json();
+          if (result.errors && result.errors.length) {
+            message = result.errors.map(error => error.message).join(" ");
+          }
+        } catch (_) {}
+        status.textContent = message;
+      }
+    } catch (_) {
+      status.textContent = "Connection problem. Please try again or call/text 219-973-8134.";
+    } finally {
+      button.disabled = false;
+      button.textContent = originalLabel;
     }
-    const data = new FormData(form);
-    const lines = [intro, ""];
-    for (const [key, value] of data.entries()) {
-      if (String(value).trim()) lines.push(key.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()) + ": " + value);
-    }
-    const url = "mailto:" + BUSINESS_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
-    window.location.href = url;
   }
-  document.getElementById("booking-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    if (!this.reportValidity()) return;
-    formToEmail(this, "Appointment Request — Elite Auto Revival LLC", "New mobile service appointment request:");
+
+  document.getElementById("booking-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    submitToFormspree(this);
   });
-  document.getElementById("fleet-quote").addEventListener("submit", function(e) {
-    e.preventDefault();
-    if (!this.reportValidity()) return;
-    formToEmail(this, "Fleet Quote Request — Elite Auto Revival LLC", "New fleet detailing quote request:");
+
+  document.getElementById("fleet-quote").addEventListener("submit", function(event) {
+    event.preventDefault();
+    submitToFormspree(this);
   });
+
   document.querySelectorAll("[data-service]").forEach(link => link.addEventListener("click", () => {
     document.getElementById("b-service").value = link.dataset.service;
   }));
