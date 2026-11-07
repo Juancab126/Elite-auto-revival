@@ -49,6 +49,13 @@
     .service h3{font-size:1.3rem;margin:25px 0 8px}
     .service p{color:var(--muted);font-size:.94rem;margin:0 0 22px}
     .service a{margin-top:auto;font-size:.9rem;font-weight:800;border-bottom:1px solid #777;padding-bottom:5px;align-self:flex-start}
+
+    .portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .portfolio-card{margin:0;background:linear-gradient(145deg,#171717,#0f0f0f);border:1px solid var(--line);padding:14px}
+    .portfolio-card img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#111}
+    .portfolio-card figcaption{padding:15px 4px 3px}
+    .portfolio-card h3{font-size:1.2rem;margin:0 0 4px}
+    .portfolio-card p{font-size:.9rem;color:var(--muted);margin:0}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
     .feature-panel{padding:35px;border:1px solid var(--line);background:linear-gradient(145deg,#1a1a1a,#0d0d0d)}
     .checklist{list-style:none;padding:0;margin:24px 0}
@@ -84,7 +91,7 @@
   <div class="wrap nav">
     <a class="brand" href="#home" aria-label="Elite Auto Revival home">ELITE AUTO REVIVAL<span>LLC · MOBILE SERVICES</span></a>
     <nav class="links" aria-label="Main navigation">
-      <a href="#services">Services</a><a href="#fleet">Fleet Programs</a><a href="#booking">Booking</a>
+      <a href="#services">Services</a><a href="#gallery">Our Work</a><a href="#fleet">Fleet Programs</a><a href="#booking">Booking</a>
       <a class="btn" href="#booking">Request a Quote</a>
     </nav>
   </div>
@@ -139,6 +146,22 @@
     </div>
   </section>
 
+
+  <section id="gallery" style="background:#101010;border-top:1px solid #252525;border-bottom:1px solid #252525">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Our work</div><h2>See the difference.</h2><p class="sub">Before-and-after transformations from vehicle detailing and exterior property cleaning.</p></div>
+      <div class="portfolio-grid">
+        <figure class="portfolio-card">
+          <img src="auto-portfolio.webp" alt="Before-and-after examples of vehicle interior and exterior detailing" loading="lazy" decoding="async">
+          <figcaption><h3>Auto Detailing</h3><p>Interior and exterior vehicle cleaning transformations.</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <img src="home-portfolio.webp" alt="Before-and-after examples of house, driveway, and exterior pressure washing" loading="lazy" decoding="async">
+          <figcaption><h3>House & Driveway Washing</h3><p>Exterior property cleaning transformations.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
   <section id="fleet" style="background:#101010;border-top:1px solid #252525;border-bottom:1px solid #252525">
     <div class="wrap split">
       <div>
